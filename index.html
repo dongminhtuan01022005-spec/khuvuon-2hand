@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Khu Vườn 2Hand</title>
+</head>
+<body>
+    <h1>Danh sách sản phẩm trong khu vườn</h1>
+    <div id="product-list">Đang tải dữ liệu...</div>
+
+    <script>
+        // Lấy dữ liệu từ API của chúng ta
+        fetch('/api/products')
+            .then(response => response.json())
+            .then(data => {
+                const listDiv = document.getElementById('product-list');
+                listDiv.innerHTML = ''; // Xóa chữ "Đang tải"
+                
+                // Hiển thị từng sản phẩm
+                data.forEach(product => {
+                    const item = document.createElement('div');
+                    item.innerHTML = `<h3>${product.ProductName}</h3><p>Giá: ${product.Price}đ</p>`;
+                    listDiv.appendChild(item);
+                });
+            })
+            .catch(error => {
+                console.error('Lỗi rồi Lucius ơi:', error);
+                document.getElementById('product-list').innerText = 'Không tải được dữ liệu!';
+            });
+    </script>
+</body>
+</html>

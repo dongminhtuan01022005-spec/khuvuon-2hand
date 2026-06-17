@@ -1,0 +1,17 @@
+CREATE TABLE Customers (
+    CustomerID INT IDENTITY(1,1) PRIMARY KEY,
+
+    FullName NVARCHAR(100) NOT NULL,
+
+    Email NVARCHAR(255) NOT NULL,
+
+    PhoneNumber VARCHAR(20),
+
+    Address NVARCHAR(255),
+
+    Message NVARCHAR(MAX),
+
+    CreatedAt DATETIME DEFAULT GETDATE(),
+
+    UpdatedAt DATETIME DEFAULT GETDATE()
+);

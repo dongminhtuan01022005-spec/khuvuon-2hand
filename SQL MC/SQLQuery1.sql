@@ -1,0 +1,5 @@
+CREATE DATABASE KhuVuon2Hand;
+GO
+
+USE KhuVuon2Hand;
+GO
